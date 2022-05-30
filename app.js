@@ -24,7 +24,7 @@ const nav= [
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
-const homeRouter = require('./src/routes/homerouter');
+const homeRouter = require('./src/routes/homerouter');//Part #1 Point 3  require('./src/routes/homeroute'); correct location homerouter.js 
 const booksRouter = require('./src/routes/booksroute');
 const authorsRouter = require('./src/routes/authorsroute');
 
@@ -34,11 +34,10 @@ const app = new express;
 app.set('views','./src/views'); 
 app.set('view engine','ejs'); 
 
-app.use(cors());//Part #1 Point 3 
+app.use(cors());//Part #2 Point 7 - Added cors module Enable All CORS Requests
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname , '/public'))); 
-//app.use("/images",express.static("images"));
 
 app.use('/login',loginRouter); 
 app.use('/signup',signupRouter); 
